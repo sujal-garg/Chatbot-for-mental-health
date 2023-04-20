@@ -1,31 +1,6 @@
-# Chatbot for mental health
-
-This project was done for a research project under a professor at my university with a self-scraped dataset.
-The dataset is confidential; however, I thought to make the open-source to make a compilation of making different **chatbots from scracth in Python**, since I struggled with resources during my research. 
-
-## Motivation behind this project
-
-In 2017, the National Mental Health Survey reported that one in seven people in India suffered from mental disorders, including depression and anxiety. The increasing awareness of mental health has made it a primary concern of development. Nearly 150 million people in India needed interventions, where the low and middle class faced more burden than the well-off people. This project is an attempt to make mental health more accessible. This conversational agent can be complemented with clinicians to make it more effective and fruitful.
- 
-
-## Classifications of chatbots 
-
-Chatbots can be classified on the basis of different attributes - 
-
-<img src="https://github.com/pandeyanuradha/Chatbot-for-mental-health/blob/cf6ec506c29952048d698fbea18708cf275d66e7/classification.png" width="500" height="600">
-
-My research was related to the design approaches, namely, rule-based, retrieval-based, and generative-based.
-
 1. Rule-based Chatbots: A rule-based chatbot uses a simple rule-based mapping or pattern matching to select responses from sets of predefined responses. These systems don't produce any new text; instead, they choose an answer from a predetermined list.
 2. Retrieval-based Chatbots: A retrieval-based chatbot uses Machine Learning ensembles as heuristics for evaluation. Similar to rule-based chatbots, they do not generate new texts.
 3. Generative-based Chatbots: Generative models do not rely on predefined responses. They come up with new replies from scratch. Machine Translation techniques are typically used in generative models, but instead of translating from one language to another, we "translate" from input to output (response). Generative models are used for the creation because they learn from scratch.
-
-
-## Overview of the bots trained 
-
-The dataset was picked up from kaggle - [Mental Health FAQ](https://www.kaggle.com/narendrageek/mental-health-faq-for-chatbot). This dataset consists of 98 FAQs about Mental Health. It consists of 3 columns - QuestionID, Questions, Answers. 
-
-**Note that for training the retrieval chatbot, the CSV file was manually converted to a JSON file**. Since this is not the origional dataset used for the research (read intro), I have used only first 20 rows for training the model.
 
 The repository consists three notebooks for the three types of chatbots. 
 
@@ -49,20 +24,3 @@ It was observed that the **CNN architecture gave the best results**. The model c
  - JSON stores data in a hierarchical manner, which is better for a retrieval-based chatbot, given that the chatbot would require tags and contexts.
 - A retrieval-based chatbot is trained to give the best response based on a pool of predefined answers. These predefined responses are finite in number. A tag needs to be provided for input to output mapping. To put it simply, the input given by the user(the context) is identified by the tag provided. **Based on the best tag that is predicted, the user is shown one of the predefined responses**. Hence, storing this kind of data in a JSON file is easier due to its compactness and hierarchical structure.
 - A CSV file has been used for storing the data of the generative chatbot. **A generative chatbot doesn’t require tags to make predictions**. These data are easier to store in a CSV file, since we need just two columns - input text and output text. Adding or deleting data would be easier in this case as compared to a JSON file.
-
-## Future goals
-
-I want to research the possibilities of the generative-based chatbot further. The current encoder-decoder model cannot capture all the dependencies in the decoder layer due to the compact nature of LSTM. Attention layers can be added after LSTM layers to decode each output dynamically. 
-
-
-  
-
-
-
-
-
-
-
-
-
-
